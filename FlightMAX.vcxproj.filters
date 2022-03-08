@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\FlightMAX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\FlightMAX_starter_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\imgui\imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\imgui\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\imgui\imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\imgui\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\imgui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\imgui\misc\cpp\imgui_stdlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\ImgWindow\ImgFontAtlas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\ImgWindow\ImgWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0A2EF921-0587-3642-8394-712D7EBD3809}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

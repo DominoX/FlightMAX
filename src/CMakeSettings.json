@@ -27,12 +27,12 @@
             "name": "x64-Release",
             "generator": "Ninja",
             "configurationType": "RelWithDebInfo",
+            "inheritEnvironments": [ "msvc_x64_x64" ],
             "buildRoot": "${projectDir}\\build-win\\${name}",
             "installRoot": "${projectDir}\\out\\install\\${name}",
             "cmakeCommandArgs": "",
             "buildCommandArgs": "",
             "ctestCommandArgs": "",
-            "inheritEnvironments": [ "msvc_x64_x64" ],
             "variables": [
                 {
                     "name": "CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO",

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\CMakeFiles\e03cf1269dc534e234989168d392f859\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4EB25C62-DAB8-362D-B77B-72FD4EF0D016}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
