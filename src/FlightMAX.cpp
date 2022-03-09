@@ -1,5 +1,5 @@
 
-#define VERSION_NUMBER "1.00.0 build " __DATE__ " " __TIME__
+#define PLUGIN_NAME "FlightMAX 1.0.0 (" __DATE__ " " __TIME__ ")"
 
 // All our headers combined
 #include "FlightMAX.h"
@@ -82,20 +82,24 @@ void CBMenu (void* /*inMenuRef*/, void* inItemRef)
 
 
 PLUGIN_API int XPluginStart(char * outName, char * outSig, char * outDesc) {
-    // Plugin details
-    XPLMDebugString("FlightMAX " VERSION_NUMBER  "\n");
-    strcpy(outName, "FlightMAX " VERSION_NUMBER);
-    strcpy(outSig,  "DaveSvab.plugins.FlightMAX");
-    strcpy(outDesc, "FlightMAX plugin for XP11");
+    XPLMDebugString("XPluginStart:" PLUGIN_NAME);
+
+    const char pluginName[] = PLUGIN_NAME;
+    const char pluginSig[] = "DaveSvab.plugins.FlightMAX";
+    const char pluginDesc[] = "XP11 plugin for managing and automating many stages of a flight";
+
+    strcpy_s(outName, sizeof(pluginName), pluginName);
+    strcpy_s(outSig,  sizeof(pluginSig), pluginSig);
+    strcpy_s(outDesc, sizeof(pluginDesc), pluginDesc);
 
     // You probably want this on
-	XPLMEnableFeature("XPLM_USE_NATIVE_PATHS", 1);
+	XPLMEnableFeature("XPLM_USE_NATIVE_PATHS", 1);      // for MAC OS - use POSIX paths
     
     // Create the menu for the plugin
-    int my_slot = XPLMAppendMenuItem(XPLMFindPluginsMenu(), "imgui4xp", NULL, 0);
-    XPLMMenuID hMenu = XPLMCreateMenu("imgui4xp", XPLMFindPluginsMenu(), my_slot, CBMenu, NULL);
-    XPLMAppendMenuItem(hMenu, "Collate All Windows", (void*)1, 0);
-    XPLMAppendMenuItem(hMenu, "Add Window (solid)", (void*)2, 0);
+    int my_slot = XPLMAppendMenuItem(XPLMFindPluginsMenu(), "FlightMAX", NULL, 0);
+    XPLMMenuID hMenu = XPLMCreateMenu("FlightMAX", XPLMFindPluginsMenu(), my_slot, CBMenu, NULL);
+    XPLMAppendMenuItem(hMenu, "Collate All Windows",      (void*)1, 0);
+    XPLMAppendMenuItem(hMenu, "Add Window (solid)",       (void*)2, 0);
     XPLMAppendMenuItem(hMenu, "Add Window (transparent)", (void*)3, 0);
 
     // Initialize random number generator
@@ -128,8 +132,8 @@ PLUGIN_API int XPluginEnable(void) {
     return 1;
 }
 
-PLUGIN_API void XPluginReceiveMessage(XPLMPluginID, int inMessage, void * /*inParam*/) {
-    
+PLUGIN_API void XPluginReceiveMessage(XPLMPluginID, int inMessage, void * /*inParam*/)
+{
     switch (inMessage) {
         // Move all windows in or out of VR when VR mode changes
         case XPLM_MSG_ENTERED_VR:

@@ -54,20 +54,17 @@ ImgFontAtlas::~ImgFontAtlas()
     mOurAtlas = nullptr;
 }
 
-ImFont *
-ImgFontAtlas::AddFont(const ImFontConfig *font_cfg)
+ImFont * ImgFontAtlas::AddFont(const ImFontConfig *font_cfg)
 {
     return mOurAtlas->AddFont(font_cfg);
 }
 
-ImFont *
-ImgFontAtlas::AddFontDefault(const ImFontConfig *font_cfg)
+ImFont * ImgFontAtlas::AddFontDefault(const ImFontConfig *font_cfg)
 {
     return mOurAtlas->AddFontDefault(font_cfg);
 }
 
-ImFont *
-ImgFontAtlas::AddFontFromFileTTF(const char *filename,
+ImFont * ImgFontAtlas::AddFontFromFileTTF(const char *filename,
                                  float size_pixels,
                                  const ImFontConfig *font_cfg,
                                  const unsigned short *glyph_ranges)
@@ -75,8 +72,7 @@ ImgFontAtlas::AddFontFromFileTTF(const char *filename,
     return mOurAtlas->AddFontFromFileTTF(filename, size_pixels, font_cfg, glyph_ranges);
 }
 
-ImFont *
-ImgFontAtlas::AddFontFromMemoryTTF(void *font_data,
+ImFont * ImgFontAtlas::AddFontFromMemoryTTF(void *font_data,
                                    int font_size,
                                    float size_pixels,
                                    const ImFontConfig *font_cfg,
@@ -85,8 +81,7 @@ ImgFontAtlas::AddFontFromMemoryTTF(void *font_data,
     return mOurAtlas->AddFontFromMemoryTTF(font_data, font_size, size_pixels, font_cfg, glyph_ranges);
 }
 
-ImFont *
-ImgFontAtlas::AddFontFromMemoryCompressedTTF(const void *compressed_font_data,
+ImFont * ImgFontAtlas::AddFontFromMemoryCompressedTTF(const void *compressed_font_data,
                                              int compressed_font_size,
                                              float size_pixels,
                                              const ImFontConfig *font_cfg,
@@ -95,8 +90,7 @@ ImgFontAtlas::AddFontFromMemoryCompressedTTF(const void *compressed_font_data,
     return mOurAtlas->AddFontFromMemoryCompressedTTF(compressed_font_data, compressed_font_size, size_pixels, font_cfg, glyph_ranges);
 }
 
-ImFont *
-ImgFontAtlas::AddFontFromMemoryCompressedBase85TTF(const char *compressed_font_data_base85,
+ImFont * ImgFontAtlas::AddFontFromMemoryCompressedBase85TTF(const char *compressed_font_data_base85,
                                                    float size_pixels,
                                                    const ImFontConfig *font_cfg,
                                                    const unsigned short *glyph_ranges)
@@ -104,8 +98,7 @@ ImgFontAtlas::AddFontFromMemoryCompressedBase85TTF(const char *compressed_font_d
     return mOurAtlas->AddFontFromMemoryCompressedBase85TTF(compressed_font_data_base85, size_pixels, font_cfg, glyph_ranges);
 }
 
-ImFontAtlas *
-ImgFontAtlas::getAtlas()
+ImFontAtlas * ImgFontAtlas::getAtlas()
 {
     return mOurAtlas;
 }

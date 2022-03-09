@@ -1,13 +1,3 @@
-/*
- *   Imgui Starter Window for X-Plane
- *   William Good
- *
- *   This is a templete to allow you to use Imgui with X-Plane
- *
- *
- *
- *
- */
 
 // All our headers combined
 #include "FlightMAX.h"
@@ -44,11 +34,7 @@ IMGUI_API void PushID_formatted(const char* format, ...)
 /// @param colFg Foreground/text color (optional, otherwise no change)
 /// @param colBg Background color (optional, otherwise no change)
 /// @param size button size, 0 for either axis means: auto size
-IMGUI_API bool ButtonTooltip(const char* label,
-                             const char* tip = nullptr,
-                             ImU32 colFg = IM_COL32(1,1,1,0),
-                             ImU32 colBg = IM_COL32(1,1,1,0),
-                             const ImVec2& size = ImVec2(0,0))
+IMGUI_API bool ButtonTooltip(const char* label, const char* tip = nullptr, ImU32 colFg = IM_COL32(1,1,1,0), ImU32 colBg = IM_COL32(1,1,1,0), const ImVec2& size = ImVec2(0,0))
 {
     // Setup colors
     if (colFg != IM_COL32(1,1,1,0))
@@ -107,7 +93,7 @@ int         g_dragVal2  = 0;
 
 
 // Trying to find a way to get a image to be displayed
-const std::string IMAGE_NAME = "./Resources/plugins/imgui4xp/imgui_demo.jpg";
+const std::string IMAGE_NAME = "./Resources/plugins/FlightMAX/FlightMAX_demo.jpg";
 
 // Font size, also roughly defines height of one line
 constexpr float FONT_SIZE = 13.0f;
@@ -131,10 +117,8 @@ int loadImage(const std::string& fileName, int& imgWidth, int& imgHeight) {
     XPLMBindTexture2d(id, 0);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
-    glTexImage2D(GL_TEXTURE_2D, 0,
-            GL_RGBA, imgWidth, imgHeight, 0,
-            GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glPixelStorei  (GL_UNPACK_ROW_LENGTH, 0);
+    glTexImage2D   (GL_TEXTURE_2D, 0, GL_RGBA, imgWidth, imgHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
     stbi_image_free(data);
 
@@ -153,7 +137,7 @@ int try2load_image(const std::string& fileName, ImVec2& imgSize) {
         imgSize.y = float(imgHeight);
         return ret;
     } catch (const std::exception &e) {
-        std::string err = std::string("imgui4xp Error: ") + e.what() + " in " + fileName + "\n";
+        std::string err = std::string("FlightMAX Error: ") + e.what() + " in " + fileName + "\n";
         XPLMDebugString(err.c_str());
         return 0;
     }
@@ -261,7 +245,6 @@ bool ImguiWidget::tableDataTy::contains (const std::string& s) const
     return false;
 }
 
-
 ImguiWidget::ImguiWidget(int left, int top, int right, int bot,
                          XPLMWindowDecoration decoration,
                          XPLMWindowLayer layer) :
@@ -297,7 +280,7 @@ ImguiWidget::ImguiWidget(int left, int top, int right, int bot,
     flId = XPLMCreateFlightLoop(&flDef);
     
     // Define our own window title
-    SetWindowTitle("Imgui v" IMGUI_VERSION " for X-Plane  by William Good");
+    SetWindowTitle("FlightMAX v" IMGUI_VERSION " for XP11. (c) Dave Svab");
     SetWindowResizingLimits(100, 100, 1024, 1024);
     SetVisible(true);
     
