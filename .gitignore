@@ -6,14 +6,3 @@
 # Build directories
 x64/
 debug/
-
-# Generated documentation
-docs/html/
-
-# XCode user specific files
-xcuserdata/
-*.xcworkspace/
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-*.pbxuser
