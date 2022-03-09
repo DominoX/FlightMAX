@@ -1,17 +1,7 @@
-/*
- *   Imgui Starter Window for X-Plane
- *   William Good
- *
- *   This is a templete to allow you to use Imgui with X-Plane
- *
- *
- *
- *
- */
 #ifndef SRC_IMGUIWIDGET_H_
 #define SRC_IMGUIWIDGET_H_
 
-#include "../src/ImgWindow/ImgWindow.h"
+#include "ImgWindow.h"
 #include <vector>
 
 // Configure one-time setup like fonts

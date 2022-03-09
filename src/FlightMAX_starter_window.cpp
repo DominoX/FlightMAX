@@ -12,52 +12,52 @@
 
 namespace ImGui {
 
-/// @brief Helper for creating unique IDs
-/// @details Required when creating many widgets in a loop, e.g. in a table
-IMGUI_API void PushID_formatted(const char* format, ...)    IM_FMTARGS(1);
+    /// @brief Helper for creating unique IDs
+    /// @details Required when creating many widgets in a loop, e.g. in a table
+    IMGUI_API void PushID_formatted(const char* format, ...)    IM_FMTARGS(1);
 
-IMGUI_API void PushID_formatted(const char* format, ...)
-{
-    // format the variable string
-    va_list args;
-    char sz[500];
-    va_start (args, format);
-    vsnprintf(sz, sizeof(sz), format, args);
-    va_end (args);
-    // Call the actual push function
-    PushID(sz);
-}
+    IMGUI_API void PushID_formatted(const char* format, ...)
+    {
+        // format the variable string
+        va_list args;
+        char sz[500];
+        va_start (args, format);
+        vsnprintf(sz, sizeof(sz), format, args);
+        va_end (args);
+        // Call the actual push function
+        PushID(sz);
+    }
 
-/// @brief Button with on-hover popup helper text
-/// @param label Text on Button
-/// @param tip Tooltip text when hovering over the button (or NULL of none)
-/// @param colFg Foreground/text color (optional, otherwise no change)
-/// @param colBg Background color (optional, otherwise no change)
-/// @param size button size, 0 for either axis means: auto size
-IMGUI_API bool ButtonTooltip(const char* label, const char* tip = nullptr, ImU32 colFg = IM_COL32(1,1,1,0), ImU32 colBg = IM_COL32(1,1,1,0), const ImVec2& size = ImVec2(0,0))
-{
-    // Setup colors
-    if (colFg != IM_COL32(1,1,1,0))
-        ImGui::PushStyleColor(ImGuiCol_Text, colFg);
-    if (colBg != IM_COL32(1,1,1,0))
-        ImGui::PushStyleColor(ImGuiCol_Button, colBg);
+    /// @brief Button with on-hover popup helper text
+    /// @param label Text on Button
+    /// @param tip Tooltip text when hovering over the button (or NULL of none)
+    /// @param colFg Foreground/text color (optional, otherwise no change)
+    /// @param colBg Background color (optional, otherwise no change)
+    /// @param size button size, 0 for either axis means: auto size
+    IMGUI_API bool ButtonTooltip(const char* label, const char* tip = nullptr, ImU32 colFg = IM_COL32(1,1,1,0), ImU32 colBg = IM_COL32(1,1,1,0), const ImVec2& size = ImVec2(0,0))
+    {
+        // Setup colors
+        if (colFg != IM_COL32(1,1,1,0))
+            ImGui::PushStyleColor(ImGuiCol_Text, colFg);
+        if (colBg != IM_COL32(1,1,1,0))
+            ImGui::PushStyleColor(ImGuiCol_Button, colBg);
 
-    // do the button
-    bool b = ImGui::Button(label, size);
+        // do the button
+        bool b = ImGui::Button(label, size);
     
-    // restore previous colors
-    if (colBg != IM_COL32(1,1,1,0))
-        ImGui::PopStyleColor();
-    if (colFg != IM_COL32(1,1,1,0))
-        ImGui::PopStyleColor();
+        // restore previous colors
+        if (colBg != IM_COL32(1,1,1,0))
+            ImGui::PopStyleColor();
+        if (colFg != IM_COL32(1,1,1,0))
+            ImGui::PopStyleColor();
 
-    // do the tooltip
-    if (tip && ImGui::IsItemHovered())
-        ImGui::SetTooltip("%s", tip);
+        // do the tooltip
+        if (tip && ImGui::IsItemHovered())
+            ImGui::SetTooltip("%s", tip);
     
-    // return if button pressed
-    return b;
-}
+        // return if button pressed
+        return b;
+    }
 
 }
 
@@ -96,7 +96,7 @@ int         g_dragVal2  = 0;
 const std::string IMAGE_NAME = "./Resources/plugins/FlightMAX/FlightMAX_demo.jpg";
 
 // Font size, also roughly defines height of one line
-constexpr float FONT_SIZE = 13.0f;
+constexpr float FONT_SIZE = 15.0f;
 
 /// Uses "stb_image" library to load a picture into memory
 /// @param fileName Path to image file
@@ -255,19 +255,18 @@ ImguiWidget::ImguiWidget(int left, int top, int right, int bot,
     ImGuiIO& io = ImGui::GetIO();
     io.IniFilename = nullptr;
     
-    // We take the parameter combination "SelfDecorateResizeable" + "LayerFlightOverlay"
-    // to mean: simulate HUD
-    if (decoration  == xplm_WindowDecorationSelfDecoratedResizable &&
-        layer       == xplm_WindowLayerFloatingWindows)
+    // We take the parameter combination "SelfDecorateResizeable" + "LayerFlightOverlay" to mean: simulate HUD
+    if (decoration == xplm_WindowDecorationSelfDecoratedResizable && layer == xplm_WindowLayerFloatingWindows)
     {
-        // let's set a fairly transparent, barely visible background
+        // fairly transparent, barely visible background
         ImGuiStyle& style = ImGui::GetStyle();
         style.Colors[ImGuiCol_WindowBg] = ImColor(0, 0, 0, 0x10);
+        
         // There's no window decoration, so to move the window we need to
         // activate a "drag area", here a small strip (roughly double text height)
         // at the top of the window, ie. the window can be moved by
         // dragging a spot near the window's top
-        SetWindowDragArea(0, 5, INT_MAX, 5 + 2*int(FONT_SIZE));
+        SetWindowDragArea(0, 5, INT_MAX, 5 + 2 * int(FONT_SIZE));
     }
 
     // Create a flight loop id, but don't schedule it yet
@@ -280,6 +279,7 @@ ImguiWidget::ImguiWidget(int left, int top, int right, int bot,
     flId = XPLMCreateFlightLoop(&flDef);
     
     // Define our own window title
+    //SetWindowTitle("FlightMAX v" IMGUI_VERSION " for XP11. (c) Dave Svab");
     SetWindowTitle("FlightMAX v" IMGUI_VERSION " for XP11. (c) Dave Svab");
     SetWindowResizingLimits(100, 100, 1024, 1024);
     SetVisible(true);

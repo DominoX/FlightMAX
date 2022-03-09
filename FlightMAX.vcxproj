@@ -98,7 +98,6 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;XPLM303=1;XPLM301=1;XPLM300=1;XPLM210=1;XPLM200=1;IBM=1;APL=0;LIN=0;CMAKE_INTDIR="Debug";FlightMAX_EXPORTS</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <WarningLevel>Level3</WarningLevel>
-      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;XPLM303=1;XPLM301=1;XPLM300=1;XPLM210=1;XPLM200=1;IBM=1;APL=0;LIN=0;CMAKE_INTDIR=\"Debug\";FlightMAX_EXPORTS</PreprocessorDefinitions>
