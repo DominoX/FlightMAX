@@ -4,12 +4,8 @@
 .vs/
 
 # Build directories
-out/
-build/
-build-lin/
-build-win/
-build-mac/
-**/x64/Debug
+x64/
+debug/
 
 # Generated documentation
 docs/html/
