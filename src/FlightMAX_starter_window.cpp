@@ -177,7 +177,7 @@ void configureImgWindow()
   // Currently you can only load one font and not sure if this might change in the future.
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/DejaVuSans.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/DejaVuSansMono.ttf", FONT_SIZE);
-  // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Inconsolata.ttf", FONT_SIZE);
+  ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Inconsolata.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/ProFontWindows", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Roboto-Bold.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/RobotoCondensed-Regular.ttf", FONT_SIZE);
@@ -185,15 +185,12 @@ void configureImgWindow()
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Roboto-Regular.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/tahomabd.ttf", FONT_SIZE);
 
-    ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/DejaVuSansMono.ttf", FONT_SIZE);
     
-    // Now we merge some icons from the OpenFontsIcons font into the above font
-    // (see `imgui/docs/FONTS.txt`)
+    // Now we merge some icons from the OpenFontsIcons font into the above font (see `imgui/docs/FONTS.txt`)
     ImFontConfig config;
     config.MergeMode = true;
     
-    // We only read very selectively the individual glyphs we are actually using
-    // to safe on texture space
+    // We only read very selectively the individual glyphs we are actually using to save on texture space
     static ImVector<ImWchar> icon_ranges;
     ImFontGlyphRangesBuilder builder;
     // Add all icons that are actually used (they concatenate into one string)
@@ -311,8 +308,6 @@ void ImguiWidget::buildInterface() {
     float win_width = ImGui::GetWindowWidth();
     float win_height = ImGui::GetWindowHeight();
 
-    ImGui::TextUnformatted("Hello, World!");
-    
     // If we are a transparent HUD-like window then we draw 3 lines that look
     // a bit like a head...so people know where to drag the window to move it
     if (HasWindowDragArea()) {
@@ -326,6 +321,9 @@ void ImguiWidget::buildInterface() {
         }
     }
     
+    ImGui::TextUnformatted("Hello, World!");
+    //return;
+
     // Button with fixed width 30 and standard height
     // to pop out the window in an OS window
     static float btnWidth = ImGui::CalcTextSize(ICON_FA_WINDOW_MAXIMIZE).x + 5;
