@@ -17,11 +17,6 @@
 #include <stdexcept>
 #include <string>
 
-//--- In cross compilations TARGET_OS_OSX might not be correctly defined
-#if defined(__APPLE__) && !defined(TARGET_OS_OSX)
-#define TARGET_OS_OSX 1
-#endif
-
 //---- Define assertion handler. Defaults to calling assert().
 #define IM_ASSERT(_EXPR) do { if (!(_EXPR)) { throw std::runtime_error("ImGUI assertion failed: " # _EXPR); } } while (0)
 

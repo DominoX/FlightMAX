@@ -316,14 +316,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\ImgWindow\ImgFontAtlas.cpp" />
     <ClCompile Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\src\ImgWindow\ImgWindow.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="C:\Users\daves\OneDrive\Projects\source\repos\XP11\FlightMAX\ZERO_CHECK.vcxproj">
-      <Project>{74C86846-8CB5-3884-9FC2-BFDD3EB513D4}</Project>
-      <Name>ZERO_CHECK</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -177,13 +177,14 @@ void configureImgWindow()
   // Currently you can only load one font and not sure if this might change in the future.
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/DejaVuSans.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/DejaVuSansMono.ttf", FONT_SIZE);
-  ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Inconsolata.ttf", FONT_SIZE);
-  // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/ProFontWindows", FONT_SIZE);
+  //ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Inconsolata.ttf", FONT_SIZE);
+  //ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/ProFontWindows.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Roboto-Bold.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/RobotoCondensed-Regular.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Roboto-Light.ttf", FONT_SIZE);
-  // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Roboto-Regular.ttf", FONT_SIZE);
+   ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/Roboto-Regular.ttf", FONT_SIZE);
   // ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/tahomabd.ttf", FONT_SIZE);
+  //ImgWindow::sFontAtlas->AddFontFromFileTTF("./Resources/fonts/ProggyClean.ttf", FONT_SIZE);
 
     
     // Now we merge some icons from the OpenFontsIcons font into the above font (see `imgui/docs/FONTS.txt`)
@@ -452,7 +453,7 @@ void ImguiWidget::buildInterface() {
 
     if (ImGui::TreeNode("Sliders")) {
         ImGui::SliderFloat("Slider [0..1000]", &sliderVal1, 0, 1000, "Value %.2f");
-        ImGui::SliderFloat("Power Slider [0..100000]", &sliderVal2, 0, 100000, "Value %.2f", 3.0);
+        ImGui::SliderFloat("Power Slider [0..100000]", &sliderVal2, 0, 100000, "Value %.2f", 0);
         ImGui::SliderInt("Int Slider [0..100]", &sliderVal3, 0, 100, "Value %d");
         ImGui::SliderAngle("Angle Slider", &sliderAngle, -180, 180);
 
@@ -486,7 +487,7 @@ void ImguiWidget::buildInterface() {
     }
 
     if (ImGui::TreeNode("Drag Controls / Global Variables")) {
-        ImGui::DragFloat("Drag Float", &g_dragVal1, 1.0, 0, 1000, "%.2f", 1.0);
+        ImGui::DragFloat("Drag Float", &g_dragVal1, 1.0, 0, 1000, "%.2f", 0);
         ImGui::DragInt("Drag Int", &g_dragVal2, 1.0, 0, 1000, "%d");
         ImGui::TextUnformatted("Note: These values are global and synched between windows.");
         ImGui::TreePop();
